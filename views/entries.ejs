@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+</head>
+<link rel="stylesheet" href="/style.css">
+
+
+<body>
+
+  <div class="main-container">
+    <form action="/data" method="POST">
+      
+        <br>
+        <a class="back" href="/data">Back</a>
+        <b><p>INPUT NAME AND AGE FOR DATA ENTRY</p></b>
+        <br>
+        <label for="name">What is your name: </label>
+        <input type="text" id="name" name="name" required>
+        <br> <br> <br>
+        <label for="age">Enter Age: </label>
+        <input type="text" id="age" name="age" required>
+        <br><br>
+    
+        <button><b>Submit</b></button>
+      
+
+
+    </form>
+  </div> 
+
+    <!-- <script>
+      const calc = ()=>{
+
+        let age = document.getElementById('age')
+        let name = document.getElementById('name')
+
+        age = age.value
+        name = name.value
+        if (age < 18){
+            
+            alert(` ${name}, you are too young try again later!`)
+        }
+        else{
+            alert(`Welcome ${name} with the age ${age} you are qualified!`)
+        }
+        
+
+      }
+    </script> -->
+</body>
+</html>

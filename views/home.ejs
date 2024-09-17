@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+</head>
+<link rel="stylesheet" href="/style.css">
+<%- include ('./partials/font.ejs')%>
+
+<body> 
+    <div class="main-container">
+        <div class="secondary-container">
+            <h1><b>MY DATA ENTRIES</b></h1>
+            <br>
+
+            <div class="main-button">
+                <p>Add new Entry</p>
+                <a href="/entry">Add</a>
+            </div>
+        </div>
+        
+        <div class="table-container">
+
+        </div>
+
+        <table>
+
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Date Created</th>
+            </tr>
+            
+
+            <tr>
+                <td>
+                    <% data.forEach( item =>{ %>
+                        <a href="/entry/<%= item.id %>">
+                            <%= item.name %>
+                            <br><hr>
+                        </a>
+                        
+                    <%})%>  
+                </td>
+                
+
+                <td>
+                    <% data.forEach( item =>{ %>
+                        <a href="/entry/<%= item.id %>">
+                            <%= item.age %>
+                        </a>
+                        <br><hr>
+                    <%})%> 
+                </td>
+
+                <td>
+                    <% data.forEach( item =>{ %>
+                    
+                            <%= item.formattedDate %>
+                    
+                        <br>
+                    <%})%>  
+                </td>
+
+            </tr>
+ 
+        </table>
+
+            
+    </div>
+
+</body>
+</html>

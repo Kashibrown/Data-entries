@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+</head>
+<link rel="stylesheet" href="/style.css">
+<%- include ('./partials/font.ejs')%>
+
+
+
+<body>
+    
+    <div class="details-container">
+        <b><a class="back" href="/">back</a></b>
+        <h1>welcome <i><%=item.name%></i> to your data entry.</h1>
+        <br>
+        <h4><%=item.name%> is a wonderful name. </h4>
+        <h4>And you are <%=item.age%> years Old.</h4>
+
+        <a class="delete" data-doc="<%= item.id%>"> 
+            <i class="fa-solid fa-trash"></i>
+        </a>
+
+    </div>
+
+<script>
+    const trash = document.querySelector('a.delete');
+
+        trash.addEventListener('click', (e)=>{
+
+            //i am basically saying get the item id by navigating to the entry/id
+            const endpoint =`/entry/${trash.dataset.doc}`
+
+            fetch(endpoint,{
+            method: 'DELETE'
+            })
+            .then((response)=>response.json())
+            .then((data) => window.location.href= data.redirect)
+            .catch((err) => console.log(err))
+        })
+</script>
+</body>
+</html>
